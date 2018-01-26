@@ -41,7 +41,7 @@
               <td>{{task.name}}</td>
               <td>{{task.type}}</td>
               <td>{{task.status}}</td>
-              <td>{{task.assignedDate}}</td>
+              <td>{{task.assignedDate}} <button class="btn" ng-click="updateStatus(task)">update</button></td>
               <td ng-if="!task.assignedDate"><input type="button" class="btn"  ng-click="checkIn(task)" value="check_in"></td>
             </tr>
           </tbody>

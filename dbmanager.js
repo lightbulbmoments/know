@@ -8,6 +8,7 @@ function Server(config) {
 	self.createTask = createTask;
 	self.fetchTasks = fetchTasks;
 	self.checkIn = checkIn;
+    self.updateStatus = updateStatus;
     var firebase = require('firebase');
     var app = firebase.initializeApp(config.firebase);
     
@@ -40,6 +41,22 @@ function Server(config) {
 		callback({status:200, reqid: data.reqid});
     }
 
+    function updateStatus(data, callback){
+    	var body = data.data;
+    	var ref = firebase.database().ref("tasks");
+    	ref.once("value", function(snapshot) {
+	    	var tasks = snapshot.val();
+	    	for(var key in tasks){
+	    		if(tasks[key].id  == body.id){
+	    			tasks[key].status = body.status;
+	    		}
+	    	}
+	    	ref.set(tasks);
+	    }, function(error) {
+	        console.log("Error: " + error.code);
+	    });
+    }
+    
     function checkIn(data, callback){
     	var body = data.data;
     	var ref = firebase.database().ref("tasks");

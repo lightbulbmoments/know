@@ -47,6 +47,28 @@ know.controller('knowController', ['$scope', '$http', function($scope, $http) {
         });
     }
 
+    $scope.updateStatus = function(task){
+        bootbox.prompt("Enter status", function(result){
+            console.log(result);
+            var reqObj = getRequestObject();
+            promise = helper.getSocket(reqObj.reqid, function(data) {
+                console.log(data);
+                if(data.status == 200){
+                    $scope.$digest();
+                }else{
+                    bootbox.alert("No new tasks");
+                }
+            });
+
+            promise.done(function(socket) {
+                delete task['$$hashKey']; //for timebeing, use inbuilt fns to remove all these attributes
+                reqObj.data = task;
+                reqObj.data.status = result;
+                reqObj.rpc = 'updateStatus';
+                socket.emit('event', reqObj);
+            });  
+        });
+    }
 
     $scope.createUser = function(){
         var reqObj = getRequestObject();
@@ -61,7 +83,7 @@ know.controller('knowController', ['$scope', '$http', function($scope, $http) {
             reqObj.data = $scope.user;
             reqObj.rpc = 'createUser';
             socket.emit('event', reqObj);
-        });    
+        });
     }
 
     $scope.createTask = function(){
