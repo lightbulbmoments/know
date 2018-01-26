@@ -1,0 +1,291 @@
+* {
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: url(../images/sativa.png) repeat fixed;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}
+
+.login {
+    position: relative;
+    top: 131px;
+    width: 384px;
+    display: table;
+    margin: 0px auto auto auto;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.legend {
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+    display: block;
+    background: #2780b9;
+    padding: 15px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.legend:after {
+    content: "";
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: 152px -16px;
+    opacity: 0.06;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.input {
+    position: relative;
+    width: 90%;
+    margin: 15px auto;
+}
+
+.input span {
+    position: absolute;
+    display: block;
+    color: #d4d4d4;
+    left: 10px;
+    top: 8px;
+    font-size: 20px;
+}
+
+.input input {
+    width: 100%;
+    padding: 10px 5px 10px 40px;
+    display: block;
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+    transition: 0.2s ease-out;
+    color: #a1a1a1;
+}
+
+.input input:focus {
+    padding: 10px 5px 10px 10px;
+    outline: 0;
+    border-color: #2780b9;
+}
+
+.submit {
+    width: 45px;
+    height: 45px;
+    display: block;
+    margin: 0 auto -15px auto;
+    background: #fff;
+    border-radius: 100%;
+    border: 1px solid #2780b9;
+    color: #2780b9;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 7px #fff;
+    transition: 0.2s ease-out;
+}
+
+.submit:hover,
+.submit:focus {
+    background: #2780b9;
+    color: #fff;
+    outline: 0;
+}
+
+.feedback {
+    position: absolute;
+    bottom: -70px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: #2780b9;
+    padding: 10px 0;
+    font-size: 12px;
+    display: none;
+    opacity: 0;
+}
+
+.feedback:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(46, 204, 113, 0);
+    border-bottom-color: #2780b9;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.feedback.invalid {
+    position: absolute;
+    bottom: -70px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 0, 0, 0.45);
+    padding: 10px 0;
+    font-size: 12px;
+    display: none;
+    opacity: 0;
+}
+
+.feedback.invalid:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(46, 204, 113, 0);
+    border-bottom-color: #F48181;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.yooopiModal {
+    background-color: #2780b9;
+    color: white;
+}
+
+.yooopi-btn {
+    background-color: #2780b9;
+    border-color: #2780b9;
+    color: white
+}
+
+.yooopi-btn.focus,
+.yooopi-btn:focus,
+.yooopi-btn:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.registerButton {
+    position: relative;
+    top: 185px;
+    width: 384px;
+    display: table;
+    margin: 0px auto auto auto;
+    border-radius: 4px;
+    margin-top: 2%;
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+}
+.wrapper, .main-sidebar, .left-side {
+    background-color: #fff;
+}
+.content-wrapper, .right-side {
+    z-index: 800;
+    min-height: 100%;
+    background-color: #fff;
+        width: 82%;
+    margin-right: 10px;
+    margin-top: 77px;
+}
+
+ 
+
+ 
+ /* --- material floating label --- */
+
+.registerForm .form-group {
+    display: flex;
+    height: 55px;
+}
+
+.registerForm .control-label {
+    margin-left: 12px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    transform: translate3d(0, 30px, 0) scale(1);
+    transform-origin: left top;
+    transition: 240ms;
+}
+
+.registerForm .form-group.focused .control-label {
+    opacity: 1;
+    transform: scale(0.75);
+    font-size: 17px;
+    color: #2780b9;
+    font-weight: bold;
+}
+
+.registerForm .form-control {
+    align-self: flex-end;
+}
+
+.registerForm .form-control::-webkit-input-placeholder {
+    /*color: transparent;*/
+    transition: 240ms;
+}
+
+.registerForm .form-control:focus::-webkit-input-placeholder {
+    transition: none;
+}
+
+.registerForm .form-group.focused .form-control::-webkit-input-placeholder {
+    color: #bbb;
+}
+
+
+.registerForm textarea, .registerForm textarea.form-control, input.form-control, .registerForm input[type=text], .registerForm input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-box-shadow: inset 0 -1px 0 #dddddd !important;
+    box-shadow: inset 0 -1px 0 #2780b9 !important;
+    font-size: 16px;
+}
+
+.iconColor{
+    margin-left: 10px;
+    color: #2780b9;
+}
+
+.marginLeft_m16{
+    margin-left:-16px;
+}
+
+.green{
+    color: green
+}
+.red{
+    color: red
+}
+.yooopiColor {
+    color: #2780b9;
+}
+
+.registerForm .form-group.focused1 .control-label {
+    opacity: 1;
+    transform: scale(0.75);
+    font-size: 17px;
+    color: #2780b9;
+    font-weight: bold;
+}
