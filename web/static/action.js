@@ -37,6 +37,8 @@ know.controller('knowController', ['$scope', '$http', function($scope, $http) {
             if(data.status == 200){
                 helper.setCookie("user", data.user);
                 location.href = data.href
+            }else{
+                alert("invalid credentials");
             }
         });
 
