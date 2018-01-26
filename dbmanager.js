@@ -21,7 +21,7 @@ function Server(config) {
 	    		if(user.type == "admin"){
 	    			href = "/admin"
 	    		}
-	    		callback({status:200, reqid: data.reqid, href: href})
+	    		callback({status:200, reqid: data.reqid, href: href, user: body.username})
 	    	}else{
 	    		callback({status:404, reqid: data.reqid})
 	    	}
