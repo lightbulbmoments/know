@@ -7,6 +7,7 @@ function Server(config) {
 	self.createUser = createUser;
 	self.createTask = createTask;
 	self.fetchTasks = fetchTasks;
+	self.checkIn = checkIn;
     var firebase = require('firebase');
     var app = firebase.initializeApp(config.firebase);
     
@@ -36,12 +37,29 @@ function Server(config) {
 			pwd: body.pwd,
 			type: "user"
 		});  
-		callback({status:200, reqid: data.reqid})
+		callback({status:200, reqid: data.reqid});
+    }
+
+    function checkIn(data, callback){
+    	var body = data.data;
+    	var ref = firebase.database().ref("tasks");
+    	ref.once("value", function(snapshot) {
+	    	var tasks = snapshot.val();
+	    	for(var key in tasks){
+	    		if(tasks[key].id  == body.id){
+	    			tasks[key].userId = body.user;
+	    			tasks[key].status = "assigned";
+	    			tasks[key].assignedDate= new Date().getTime();
+	    		}
+	    	}
+	    	ref.set(tasks);
+	    }, function(error) {
+	        console.log("Error: " + error.code);
+	    });
     }
 
     function createTask(data, callback){
     	var body = data.data;
-    	console.log("we aer ere");
     	firebase.database().ref("tasks").push({
 			name: body.name,
 			type: body.type,
@@ -51,10 +69,19 @@ function Server(config) {
     }
 
     function fetchTasks(data, callback){
+    	var body = data.data;
     	var ref = firebase.database().ref("tasks");
 	    ref.on("value", function(snapshot) {
-	    	var tasks = snapshot.val();
-	    	callback({status:200, reqid: data.reqid, tasks:tasks})
+	    	var allTasks = snapshot.val();
+	    	var userTasks = [];
+	    	for(var key in allTasks){
+	    		if(body.user == "admin"){
+	    			userTasks.push(allTasks[key]);
+	    		}else {
+	    			userTasks.push(allTasks[key]);
+	    		}
+	    	}
+	    	callback({status:200, reqid: data.reqid, tasks:userTasks})
 	    }, function(error) {
 	        console.log("Error: " + error.code);
 	    });

@@ -24,21 +24,25 @@
     <div class="container">
         <h2>Welcome to user party, {{currentUser}}</h2>
         <!-- Trigger the modal with a button -->
-        <h2 ng-show="tasks == null" style="cursor: pointer;" ng-click="fetchTasks()">No Tasks Found, Fetch some</h2>
+        <h2 ng-show="tasks == null" style="cursor: pointer;" ng-click="fetchTasks('user')">No Tasks Found, Fetch some</h2>
         <table class="table table-striped" ng-if="tasks != null">
           <thead>
             <tr>
               <th>ID</th>
               <th>Task Name</th>
               <th>Type</th>
+              <th>Status</th>
+              <th>Assigned EPOCH</th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="task in tasks">
+            <tr ng-if="task.userId == currentUser" ng-repeat="task in tasks">
               <td>{{task.id}}</td>
               <td>{{task.name}}</td>
               <td>{{task.type}}</td>
-              <td><input type="button" class="btn"  ng-click="checkIn(task)" value="check_in"></td>
+              <td>{{task.status}}</td>
+              <td>{{task.assignedDate}}</td>
+              <td ng-if="!task.assignedDate"><input type="button" class="btn"  ng-click="checkIn(task)" value="check_in"></td>
             </tr>
           </tbody>
         </table>

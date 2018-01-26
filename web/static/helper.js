@@ -35,7 +35,10 @@
                     console.log(data);
                     if (_self.socketCallbacks[data.reqid]) {
                         _self.socketCallbacks[data.reqid](data);
-                        delete _self.socketCallbacks[data.reqid];
+                        // if starts with _ it's subscribed to an event, dont delete;
+                        if(data.reqid[0] != "_"){
+                            delete _self.socketCallbacks[data.reqid];
+                        }
                     }
                 });
             }
