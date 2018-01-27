@@ -3,6 +3,7 @@
 
 <head>
     <title>Know Admin</title>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
     <script type="text/javascript" src="./static/helper.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
@@ -23,9 +24,11 @@
 <body ng-controller="knowController">
     <div class="container">
         <h2>Welcome to admin party, {{currentUser}}</h2>
+        <p>{{notification}}</p>
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create User</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#userModal">Create User</button>
         <button type="button" class="btn btn-warning btn-lg pull-right" data-toggle="modal" data-target="#taskModal">Create Task</button>
+        <button type="button" class="btn btn-warning btn-lg pull-right" data-toggle="modal" ng-click="showMap()">view task progress</button>
 
         <h2>Tasks</h2>
         <!-- Trigger the modal with a button -->
@@ -37,6 +40,8 @@
               <th>Task Name</th>
               <th>Type</th>
               <th>Status</th>
+              <th>user id</th>
+              <th>Assign Task</th>
             </tr>
           </thead>
           <tbody>
@@ -45,12 +50,15 @@
               <td>{{task.name}}</td>
               <td>{{task.type}}</td>
               <td>{{task.status ? task.status : "unassigned" }}</td>
-              <td ng-if="!task.assignedDate"><input type="button" class="btn"  ng-click="assignTask(task)" value="assign"></td>
+              <th>{{task.userId}}</th>
+              <td><input type="button" class="btn"  ng-click="assignTask(task)" value="assign"></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
-        <!-- Modal -->
-        <div class="modal fade" data-backdrop="" id="myModal" role="dialog">
+        
+        <!-- UserModal -->
+        <div class="modal fade" data-backdrop="" id="userModal" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -76,7 +84,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- TaskModal -->
         <div class="modal fade"  data-backdrop="" id="taskModal" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -108,7 +116,12 @@
                 </div>
             </div>
         </div>
+        <!-- MapsModal -->
+        <div style="display: none" id="map">
     </div>
 </body>
 <script type="text/javascript" src="./static/action.js"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzWurmHuNeNRWJJc3hWhdMpYsXEfNaepY&callback=initMap">
+</script>
 </html>

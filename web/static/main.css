@@ -193,22 +193,28 @@ body {
     overflow: hidden;
     min-height: 100%;
 }
-.wrapper, .main-sidebar, .left-side {
+
+.wrapper,
+.main-sidebar,
+.left-side {
     background-color: #fff;
 }
-.content-wrapper, .right-side {
+
+.content-wrapper,
+.right-side {
     z-index: 800;
     min-height: 100%;
     background-color: #fff;
-        width: 82%;
+    width: 82%;
     margin-right: 10px;
     margin-top: 77px;
 }
 
- 
 
- 
- /* --- material floating label --- */
+
+
+
+/* --- material floating label --- */
 
 .registerForm .form-group {
     display: flex;
@@ -253,7 +259,18 @@ body {
 }
 
 
-.registerForm textarea, .registerForm textarea.form-control, input.form-control, .registerForm input[type=text], .registerForm input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+.registerForm textarea,
+.registerForm textarea.form-control,
+input.form-control,
+.registerForm input[type=text],
+.registerForm input[type=password],
+input[type=email],
+input[type=number],
+[type=text].form-control,
+[type=password].form-control,
+[type=email].form-control,
+[type=tel].form-control,
+[contenteditable].form-control {
     padding: 0;
     border: none;
     border-radius: 0;
@@ -263,21 +280,23 @@ body {
     font-size: 16px;
 }
 
-.iconColor{
+.iconColor {
     margin-left: 10px;
     color: #2780b9;
 }
 
-.marginLeft_m16{
-    margin-left:-16px;
+.marginLeft_m16 {
+    margin-left: -16px;
 }
 
-.green{
+.green {
     color: green
 }
-.red{
+
+.red {
     color: red
 }
+
 .yooopiColor {
     color: #2780b9;
 }
@@ -288,4 +307,9 @@ body {
     font-size: 17px;
     color: #2780b9;
     font-weight: bold;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
 }

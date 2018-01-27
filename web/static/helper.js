@@ -32,7 +32,7 @@
                 _self.socket = io.connect("http://localhost" + ":" + "80", { multiplex: false });
                 dfd.resolve(_self.socket);
                 _self.socket.on("res", function(data) {
-                    console.log(data);
+                    // console.log(data);
                     if (_self.socketCallbacks[data.reqid]) {
                         _self.socketCallbacks[data.reqid](data);
                         // if starts with _ it's subscribed to an event, dont delete;

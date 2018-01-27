@@ -3,6 +3,7 @@
 
 <head>
     <title>Know User</title>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
     <script type="text/javascript" src="./static/helper.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
@@ -25,7 +26,7 @@
         <h2>Welcome to user party, {{currentUser}}</h2>
         <!-- Trigger the modal with a button -->
         <h2 ng-show="tasks == null" style="cursor: pointer;" ng-click="fetchTasks('user')">No Tasks Found, Fetch some</h2>
-        <table class="table table-striped" ng-if="tasks != null">
+        <table class="table table" ng-if="tasks != null">
           <thead>
             <tr>
               <th>ID</th>
@@ -49,4 +50,12 @@
     </div>
 </body>
 <script type="text/javascript" src="./static/action.js"></script>
+<script type="text/javascript">
+  firebase.auth().signInWithEmailAndPassword("1001", "admin123").catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+</script>
 </html>
