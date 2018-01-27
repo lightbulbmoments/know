@@ -1,0 +1,148 @@
+{
+  "333" : {
+    "pwd" : "333",
+    "type" : "user"
+  },
+  "1000" : {
+    "pwd" : "1000",
+    "type" : "user"
+  },
+  "1001" : {
+    "pwd" : "admin123",
+    "type" : "admin"
+  },
+  "2000" : {
+    "pwd" : "2000",
+    "type" : "user"
+  },
+  "3000" : {
+    "pwd" : "3000",
+    "type" : "user"
+  },
+  "4000" : {
+    "pwd" : "4000",
+    "type" : "user"
+  },
+  "4444" : {
+    "pwd" : "4444",
+    "type" : "user"
+  },
+  "5999" : {
+    "pwd" : "5999",
+    "type" : "user"
+  },
+  "tasks" : {
+    "-L3m5c1V-1cQOJkbq7sC" : {
+      "assignedDate" : 1516987646122,
+      "id" : 1516964053150,
+      "name" : "tsss",
+      "status" : "assigned",
+      "type" : "type1",
+      "userId" : "1002"
+    },
+    "-L3m5w9JY_ZB-GbdVfzX" : {
+      "assignedDate" : 1516986056718,
+      "id" : 1516964137392,
+      "location" : {
+        "lat" : 12.9558368,
+        "lng" : 77.5371157
+      },
+      "name" : "newtask",
+      "status" : "one",
+      "type" : "type4",
+      "userId" : "user"
+    },
+    "-L3nVbfODbRBGzPgSsI3" : {
+      "assignedDate" : 1516989766478,
+      "id" : 1516987646050,
+      "name" : "newtaskk",
+      "status" : "assigned",
+      "type" : "type3",
+      "userId" : "1002"
+    },
+    "-L3n_6uvtjWrzAPbPIZR" : {
+      "assignedDate" : 1516989236253,
+      "id" : 1516988826693,
+      "name" : "NEW",
+      "status" : "assigned",
+      "type" : "type3",
+      "userId" : "EEE"
+    },
+    "-L3n_RVn0aeaazNY2niN" : {
+      "assignedDate" : 1516989486761,
+      "id" : 1516988911039,
+      "name" : "asd@gmaa.com",
+      "status" : "assigned",
+      "type" : "type3",
+      "userId" : "ss"
+    },
+    "-L3naFa_QHP7TSfsyEaX" : {
+      "assignedDate" : 1517087733303,
+      "id" : 1516989124401,
+      "location" : {
+        "lat" : 20.5761571,
+        "lng" : 77.9099719
+      },
+      "name" : "testss",
+      "status" : "five",
+      "type" : "type2",
+      "userId" : "user"
+    },
+    "-L3nafthPAgjCn35q5JC" : {
+      "assignedDate" : 1516989307668,
+      "id" : 1516989236217,
+      "name" : "ew",
+      "status" : "assigned",
+      "type" : "type2",
+      "userId" : "ass"
+    },
+    "-L3nckxo-NzgUAyuNFH1" : {
+      "assignedDate" : 1516989787726,
+      "id" : 1516989781299,
+      "location" : {
+        "lat" : 28.6472799,
+        "lng" : 76.8130629
+      },
+      "name" : "newss",
+      "status" : "two",
+      "type" : "type3",
+      "userId" : "user"
+    },
+    "-L3t6ZxBYb9ccQtk3uU5" : {
+      "assignedDate" : 1517084947181,
+      "id" : 1517081744801,
+      "location" : {
+        "lat" : 21.9139961,
+        "lng" : 103.7041599
+      },
+      "name" : "testtask",
+      "status" : "three",
+      "type" : "type2",
+      "userId" : "user"
+    },
+    "-L3t6pbGo0ZxHp4MqB_x" : {
+      "assignedDate" : 1517085077186,
+      "id" : 1517081813015,
+      "location" : {
+        "lat" : 21.9139961,
+        "lng" : 103.7041599
+      },
+      "name" : "nnn",
+      "status" : "four",
+      "type" : "type3",
+      "userId" : "user"
+    },
+    "-L3t7GW7I6f_AdUPapV2" : {
+      "assignedDate" : 1517085012866,
+      "id" : 1517081927325,
+      "name" : "ready",
+      "status" : "assigned",
+      "type" : "type2",
+      "userId" : "news"
+    }
+  },
+  "user" : {
+    "pwd" : "user",
+    "type" : "user"
+  }
+}
